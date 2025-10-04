@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "type": {
+            "type": "string",
+            "enum": ["text", "email", "password", "textarea", "select", "checkbox", "radio"]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "placeholder": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": ["name", "type"]
+      },
+      "minItems": 1,
+      "maxItems": 10
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "submitText": {
+      "type": "string",
+      "maxLength": 50
+    }
+  },
+  "required": ["fields"],
+  "additionalProperties": false
+}
